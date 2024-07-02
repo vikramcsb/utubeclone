@@ -30,6 +30,14 @@ const Navbar = ({setsidebar}) => {
     setsearch_string(event.target.value);
   }
 
+  //to open the search page and to set the value of input to default
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission
+    let searchString=search_string;
+    setsearch_string(''); // Clear the input field after search
+    window.open(`https://viktube.netlify.app/searched/${searchString}`,"_self");
+  };
+
   return (
     <nav className='flex-div'>
       <div className='nav-left flex-div'>
@@ -44,7 +52,7 @@ const Navbar = ({setsidebar}) => {
       <div className="nav-middle flex-div">
         <div className="search-box flex-div">
           <input type="text" placeholder='Search' name="search" value={search_string} onChange={setsearchstring}/>
-          <Link to={search_string===""?`/`:`/searched/${search_string}`}><img src={search_icon} alt="" /></Link>
+          <img onClick={handleSubmit} src={search_icon} alt="" />
         </div>
       </div>
 
