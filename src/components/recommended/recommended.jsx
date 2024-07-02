@@ -8,7 +8,7 @@ import thumbnail5 from '../../assets/thumbnail5.png'
 import thumbnail6 from '../../assets/thumbnail6.png'
 import thumbnail7 from '../../assets/thumbnail7.png'
 import thumbnail8 from '../../assets/thumbnail8.png'
-import { API_KEY ,value_converter} from '../../data';
+import { API_KEY2 ,value_converter} from '../../data';
 import { Link } from 'react-router-dom';
 
 const Recommended = ({categoryId}) => {
@@ -16,7 +16,7 @@ const Recommended = ({categoryId}) => {
       const [apidata,setapidata] = useState([]);
 
       const fetchdata = async () =>{
-            const relatedvideo_url=`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=45&regionCode=IN&videoCategoryId=${categoryId}&key=${API_KEY}`;
+            const relatedvideo_url=`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=45&regionCode=IN&videoCategoryId=${categoryId}&key=${API_KEY2}`;
             await fetch(relatedvideo_url)
             .then(res=>res.json())
             .then(data=>setapidata(data.items));
