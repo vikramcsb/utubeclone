@@ -7,7 +7,7 @@ import share from '../../assets/share.png'
 import save from '../../assets/save.png'
 import jack from '../../assets/jack.png'
 import user_profile from '../../assets/user_profile.jpg'
-import { API_KEY, value_converter } from '../../data.js'
+import { API_KEY1,API_KEY2, value_converter } from '../../data.js'
 import moment from 'moment'
 import { useParams } from 'react-router-dom'
 
@@ -22,7 +22,7 @@ const Playvideo = () => {
       
       const fetchvideodata = async () =>{
             //fetching videos data
-            const videodetails_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY}`;
+            const videodetails_url = `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${videoId}&key=${API_KEY1}`;
             await fetch(videodetails_url)
             .then(res=>res.json())
             .then(data=> setapidata(data.items[0]));
@@ -30,13 +30,13 @@ const Playvideo = () => {
 
       const fetchotherdata = async() =>{
             //fetching channel data
-            const channeldata_url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apidata.snippet.channelId}&key=${API_KEY}`;
+            const channeldata_url = `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${apidata.snippet.channelId}&key=${API_KEY2}`;
             await fetch(channeldata_url)
             .then(res=>res.json())
             .then(data=>setchanneldata(data.items[0]));
 
             //fetching comment url
-            const comment_url=`https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=45&videoId=${videoId}&key=${API_KEY}`;
+            const comment_url=`https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet%2Creplies&maxResults=45&videoId=${videoId}&key=${API_KEY1}`;
             await fetch(comment_url)
             .then(res=>res.json())
             .then(data=>setcommentdata(data.items));
