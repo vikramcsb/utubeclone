@@ -13,17 +13,14 @@ import utube_premium from '../../assets/utube_premium.jpeg'
 import utube_studio from '../../assets/utube_studio.jpeg'
 import utube_music from '../../assets/utube_music.jpeg'
 import utube_kids from '../../assets/utube_kids.jpeg'
-import jack from '../../assets/jack.png'
-import simon from '../../assets/simon.png'
-import tom from '../../assets/tom.png'
-import megan from '../../assets/megan.png'
-import cameron from '../../assets/cameron.png'
 import { API_KEY } from '../../data'
 import { useEffect,useState } from 'react'
 
 const Sidebar = ({sidebar,category,setcategory}) => {
       //to set list of subscriptions
-      const [subscribed,setsubscribed] = useState([1,2,3,4]);
+      const [subscribed,setsubscribed] = useState([{url:"../../assets/jack.png",channel:"dusky tribe"},
+            {url:"../../assets/simon.png",channel:"carry vlogs"},{url:"../../assets/tom.png",channel:"code aur chae"},
+            {url:"../../assets/megan.png",channel:"Ninjas"},{url:"../../assets/cameron.png",channel:"Music Masti"}]);
 
       // const fetchdata = async () =>{
       //       const videolist_url = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&channelId=UCm5XuLizI7rU--xzKJI7CuQ&key=${API_KEY}`;
