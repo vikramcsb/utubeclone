@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './feed_search.css'
 import {Link} from 'react-router-dom'
-import { API_KEY, value_converter } from '../../data.js'
+import { API_KEY4, value_converter } from '../../data.js'
 import moment from 'moment'
 
 const Feed_search = ({string_searched}) => {
@@ -9,7 +9,7 @@ const Feed_search = ({string_searched}) => {
       const [data,setdata] = useState([]);
 
       const fetchdata = async () =>{
-            const videolist_url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=40&order=relevance&q=${string_searched}&type=video&regionCode=IN&key=${API_KEY}`;
+            const videolist_url = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=40&order=relevance&q=${string_searched}&type=video&regionCode=IN&key=${API_KEY4}`;
             await fetch(videolist_url)
             .then(response => response.json())
             .then(data=>setdata(data.items))
