@@ -9,6 +9,11 @@ import tech from '../../assets/tech.png'
 import music from '../../assets/music.png'
 import blogs from '../../assets/blogs.png'
 import news from '../../assets/news.png'
+import jack from '../../assets/jack.png'
+import simon from '../../assets/simon.png'
+import tom from '../../assets/tom.png'
+import megan from '../../assets/megan.png'
+import cameron from '../../assets/cameron.png'
 import utube_premium from '../../assets/utube_premium.jpeg'
 import utube_studio from '../../assets/utube_studio.jpeg'
 import utube_music from '../../assets/utube_music.jpeg'
@@ -18,9 +23,9 @@ import { useEffect,useState } from 'react'
 
 const Sidebar = ({sidebar,category,setcategory}) => {
       //to set list of subscriptions
-      const [subscribed,setsubscribed] = useState([{url:"../../assets/jack.png",channel:"dusky tribe"},
-            {url:"../../assets/simon.png",channel:"carry vlogs"},{url:"../../assets/tom.png",channel:"code aur chae"},
-            {url:"../../assets/megan.png",channel:"Ninjas"},{url:"../../assets/cameron.png",channel:"Music Masti"}]);
+      const [subscribed,setsubscribed] = useState([{url:jack,channel:"dusky tribe"},
+            {url:simon,channel:"carry vlogs"},{url:tom,channel:"code aur chae"},
+            {url:megan,channel:"Ninjas"},{url:cameron,channel:"Music Masti"}]);
 
       // const fetchdata = async () =>{
       //       const videolist_url = `https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet%2CcontentDetails&channelId=UCm5XuLizI7rU--xzKJI7CuQ&key=${API_KEY}`;
@@ -71,7 +76,7 @@ const Sidebar = ({sidebar,category,setcategory}) => {
             {subscribed.map((item,index)=>{
                   return(
                         <div key={index} className="side-link">
-                              <img src={jack} alt="" /><p>Code Go</p>
+                              <img src={item.url} alt="" /><p>{item.channel}</p>
                         </div>
                   );
             })}
